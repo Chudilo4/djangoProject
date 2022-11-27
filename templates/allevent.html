@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for e in event %}
+        <p>{{ e.name }}</p>
+        <div>{{ e.data_begin }}</div>
+        <div>{{ e.data_end }}</div>
+        <p class="link-read-post"><a href="{{ e.get_absolute_url }}">Читать пост</a></p>
+    {% endfor %}
+
+{% endblock %}
