@@ -1,7 +1,5 @@
 from django.db import models
-from django.forms import DateInput
 from django.urls import reverse
-from django.utils.datetime_safe import datetime
 # Create your models here.
 
 
@@ -39,3 +37,12 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
+class Equipments(models.Model):
+    name = models.CharField(max_length=255, verbose_name='Название оборудования', db_index=True)
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
+
+    class Meta:
+        verbose_name = 'Оборудование'
+        verbose_name_plural = 'Оборудование'
+        ordering = ['name']

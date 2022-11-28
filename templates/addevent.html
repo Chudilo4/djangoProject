@@ -3,6 +3,7 @@
     <form action="{% url 'addevent' %}" method="post">
     {% csrf_token %}
     {{ form.as_div }}
+    {{ equipment.as_div }}
     <input type="submit" value="Submit">
     </form>
 {% endblock %}
