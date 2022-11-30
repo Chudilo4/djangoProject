@@ -29,11 +29,9 @@ def add_event(request):
             return redirect('home')
     else:
         form = AddEvent()
-        form2 = SimpleForm()
         return render(request, 'addevent.html', {'menu': menu,
                                                  'title': 'Добавить мероприятие',
                                                  'form': form,
-                                                 'equipment': form2
                                                  }
                       )
 
@@ -48,6 +46,7 @@ def all_events(request):
 
 
 def event_page(request, event_slug):
+    Events.objects.create()
     event = get_object_or_404(Events, slug=event_slug)
     return render(request, 'eventpage.html', {'menu': menu,
                                               'title': f'Мероприятие {event.name}',

@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-{{ event.name }}
-{{ event.data_begin }}
-{{ event.data_end }}
+<h1>{{ event.name }}</h1>
+    <p>{{ event.data_begin }}</p>
+    <p>{{ event.data_end }}</p>
+    <div>{{ event.cat }}</div>
+    <p>{{ event.eq_choise }}</p>
+    <p>Оборудование</p>
+    {% for e in event.list_eq2.all %}
+        <p>{{ e }}</p>
+    {% endfor %}
 {% endblock %}
